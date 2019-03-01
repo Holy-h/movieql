@@ -1,9 +1,11 @@
 type person {
+  id: Int!
   name: String!
   age: Int!
   gender: String!
 }
 
 type Query {
-  person: person!
+  people: [person]!
+  findperson(id: Int!): person!
 }
