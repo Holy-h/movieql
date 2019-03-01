@@ -1,4 +1,4 @@
-export const people = [
+let people = [
   {
     id: 0,
     name: "Nicolas",
@@ -43,7 +43,9 @@ export const people = [
   }
 ];
 
-export const getById = id => {
-  const fillteredPeople = people.filter(item => item.id === id);
-  return fillteredPeople[0];
+export const getPeople = () => people;
+
+export const getPersonById = id => {
+  const filteredPeople = people.filter(item => item.id === id);
+  return filteredPeople[0];
 }
