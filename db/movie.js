@@ -30,7 +30,7 @@ export const getMovieById = (id) => {
 
 export const addMovie = (name, score) => {
   const newMovie = {
-    id: movies.length + 1,
+    id: movies.length,
     name,
     score,
   };
