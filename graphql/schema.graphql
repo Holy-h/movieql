@@ -5,20 +5,30 @@ type person {
   gender: String!
 }
 
-type Movie {
+type MovieDB {
   id: Int!
   name: String!
   score: Int!
 }
 
+type MovieAPI {
+  id: Int!
+  title: String!
+  rating: Float!
+  summary: String!
+  language: String!
+  medium_cover_image: String!
+}
+
 type Query {
   people: [person]!
   getperson(id: Int!): person!
-  movies: [Movie]!
-  getmovie(id: Int!): Movie!
+  moviesDB: [MovieDB]!
+  getmovieDB(id: Int!): MovieDB!
+  moviesAPI(limit: Int rating:Float): [MovieAPI]!
 }
 
 type Mutation {
-  addMovie(name: String!, score: Int!): Movie!
-  deleteMovie(id: Int!): Boolean!
+  addMovieDB(name: String!, score: Int!): MovieDB!
+  deleteMovieDB(id: Int!): Boolean!
 }
