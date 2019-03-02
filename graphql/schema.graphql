@@ -25,7 +25,8 @@ type Query {
   getperson(id: Int!): person!
   moviesDB: [MovieDB]!
   getmovieDB(id: Int!): MovieDB!
-  moviesAPI(limit: Int rating:Float): [MovieAPI]!
+  getmovieAPI(id: Int!): MovieAPI!
+  getmoviesAPI(limit: Int rating:Float): [MovieAPI]!
 }
 
 type Mutation {
