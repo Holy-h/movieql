@@ -15,7 +15,7 @@ type MovieAPI {
   id: Int!
   title: String!
   rating: Float!
-  summary: String!
+  summary: String
   language: String!
   medium_cover_image: String!
 }
@@ -26,7 +26,8 @@ type Query {
   moviesDB: [MovieDB]!
   getmovieDB(id: Int!): MovieDB!
   getmovieAPI(id: Int!): MovieAPI!
-  getmoviesAPI(limit: Int rating:Float): [MovieAPI]!
+  getmovielistAPI(limit: Int rating:Float): [MovieAPI]!
+  getmovieSuggestionAPI(id: Int!): [MovieAPI]!
 }
 
 type Mutation {

@@ -1,4 +1,3 @@
-// import fetch from "node-fetch";
 import axios from "axios";
 
 const BASE_URL = "https://yts.am/api/v2/";
@@ -6,24 +5,9 @@ const LIST_MOVIES_URL = `${BASE_URL}list_movies.json`;
 const MOVIE_DETAILS_URL = `${BASE_URL}movie_details.json`;
 const MOVIE_SUGGESTIONS_URL = `${BASE_URL}movie_suggestions.json`;
 
-// export const getMovieAPI = (limit, rating) => fetch(`${LIST_MOVIES_URL}`)
-//   .then(res => res.json())
-//   .then(json => json.data.movies);
-
-// export const getMovieAPI = (limit, rating) => axios({
-//   url: LIST_MOVIES_URL,
-//   method: "GET",
-//   params: {
-//     limit,
-//     minimum_rating: rating
-//   }
-// })
-// .then(res => res.data.data.movies)
-// .catch(error => console.log(error))
-
-
-// movielist를 받아옴
-export const getMoviesAPI = async (limit, rating) => {
+// Used to list and search through out all the available movies.
+// Can sort, filter, search and order the results
+export const getMovielistAPI = async (limit, rating) => {
   const {
     data: {
       data: { movies }
@@ -38,7 +22,7 @@ export const getMoviesAPI = async (limit, rating) => {
 }
 
 
-// id가 일치하는 movie를 받아옴
+// Returns the information about a specific movie
 export const getMovieAPI = async id => {
   const {
     data: {
@@ -51,4 +35,19 @@ export const getMovieAPI = async id => {
     }
   });
   return movie;
+}
+
+
+// Returns 4 related movies as suggestions for the user
+export const getMovieSuggestionAPI = async id => {
+  const {
+    data: {
+      data: {movies}
+    }
+  } = await axios(MOVIE_SUGGESTIONS_URL, {
+    params: {
+      movie_id: id
+    }
+  });
+  return movies;
 }

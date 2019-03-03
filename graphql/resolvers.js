@@ -1,6 +1,6 @@
 import {getPeople, getPersonById} from "../db/user"
 import { getMovies, getMovieById, addMovie, deleteMovie } from "../db/movie";
-import { getMoviesAPI, getMovieAPI } from "../db/api";
+import { getMovielistAPI, getMovieAPI, getMovieSuggestionAPI } from "../db/api";
 
 const resolvers = {
   Query: {
@@ -9,7 +9,8 @@ const resolvers = {
     moviesDB: getMovies,
     getmovieDB: (_, {id}) => getMovieById(id),
     getmovieAPI: (_, {id}) => getMovieAPI(id),
-    getmoviesAPI: (_, {limit, rating}) => getMoviesAPI(limit, rating),
+    getmovielistAPI: (_, {limit, rating}) => getMovielistAPI(limit, rating),
+    getmovieSuggestionAPI: (_, {id}) => getMovieSuggestionAPI(id),
   },
   Mutation: {
     addMovieDB: (_, {name, score}) => addMovie(name, score),
