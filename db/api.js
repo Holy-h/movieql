@@ -10,12 +10,14 @@ const MOVIE_SUGGESTIONS_URL = `${BASE_URL}movie_suggestions.json`;
 export const getMovielistAPI = async (limit, rating) => {
   const {
     data: {
-      data: { movies }
+      data: {
+        movies
+      }
     }
   } = await axios(LIST_MOVIES_URL, {
     params: {
       limit,
-      minimun_rating: rating
+      minimum_rating: rating
     }
   });
   return movies;

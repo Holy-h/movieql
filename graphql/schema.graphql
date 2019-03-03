@@ -26,7 +26,7 @@ type Query {
   moviesDB: [MovieDB]!
   getmovieDB(id: Int!): MovieDB!
   getmovieAPI(id: Int!): MovieAPI!
-  getmovielistAPI(limit: Int rating:Float): [MovieAPI]!
+  getmovielistAPI(limit:Int, rating:Float): [MovieAPI]!
   getmovieSuggestionAPI(id: Int!): [MovieAPI]!
 }
 
