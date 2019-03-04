@@ -1,34 +1,15 @@
-type person {
-  id: Int!
-  name: String!
-  age: Int!
-  gender: String!
-}
-
-type MovieDB {
-  id: Int!
-  name: String!
-  score: Int!
-}
-
-type MovieAPI {
+type Movie {
   id: Int!
   title: String!
+  genres: [String!]
   rating: Float!
-  summary: String!
+  summary: String
   language: String!
   medium_cover_image: String!
 }
 
 type Query {
-  people: [person]!
-  getperson(id: Int!): person!
-  moviesDB: [MovieDB]!
-  getmovieDB(id: Int!): MovieDB!
-  moviesAPI(limit: Int rating:Float): [MovieAPI]!
-}
-
-type Mutation {
-  addMovieDB(name: String!, score: Int!): MovieDB!
-  deleteMovieDB(id: Int!): Boolean!
+  get_movielist(limit: Int rating:Float): [Movie]!
+  get_movie(id: Int!): Movie!
+  get_moviesuggestion(id: Int!): [Movie]!
 }
